@@ -7,18 +7,32 @@ let titleInput = document.getElementById("title-input");
 let title = document.getElementById("title");
 let note = document.getElementById("first-note-p");
 
-let addButton = document.getElementById("addButton");
+let addButton = document.getElementById("add-btn");
 let removeButton = document.getElementById("remove-button");
+notePlace = document.getElementById("note-place");
+
+const createElement = (tag, text, attributes) => {
+  const el = document.createElement(tag);
+  !!text && (el.textContent = text);
+  attributes = attributes || {};
+  for (let attr in attributes)
+    attributes.hasOwnProperty(attr) && el.setAttribute(attr, attributes[attr]);
+  return el;
+};
 
 const addNote = () => {
-  myNote = noteInput.value;
-  myTitle = titleInput.value;
+  const noteEl = createElement("div");
 
-  title.innerHTML = myTitle;
-  note.innerText = myNote;
+  [
+    createElement("h3", titleInput.value),
+    createElement("p", noteInput.value),
+    createElement("button", "remove", {
+      type: "button",
+      class: removeButton,
+    }),
+  ].forEach((el) => noteEl.appendChild(el));
 
-  titleInput.value = "";
-  noteInput.value = "";
+  notePlace.appendChild(noteEl);
 };
 
 const removeNote = () => {
@@ -26,5 +40,10 @@ const removeNote = () => {
   note.innerHTML = "";
 };
 
-removeButton.onclick = removeNote;
 addButton.onclick = addNote;
+
+notePlace.addEventListener(
+  "click",
+  (e) =>
+    e.target.classList.contains(removeButton) && e.target.parentNode.remove()
+);
