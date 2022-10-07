@@ -10,8 +10,10 @@
   <body>
     <h1>Take your notes</h1>
     <input id="title-input" onfocus="this.value=''" type="text" value="title" />
-    <input id="note-input" onfocus="this.value=''" type="text" value="note" />
-    <button id="add-btn">add</button>
+    <button style="background-color: green" id="add-btn">add</button>
+    <div style="border: none">
+      <textarea id="note-input" type="text"></textarea>
+    </div>
     <div id="note-place"></div>
     <script src="notetaker.js"></script>
   </body>

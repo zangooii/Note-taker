@@ -30,8 +30,7 @@ const addNote = () => {
 
   notePlace.appendChild(noteEl);
 };
-
-addButton.onclick = addNote;
+addButton.addEventListener("click", addNote);
 
 notePlace.addEventListener(
   "click",

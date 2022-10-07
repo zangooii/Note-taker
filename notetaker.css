@@ -1,0 +1,30 @@
+#title-input {
+  background-color: darkorange;
+}
+#note-input {
+  height: 100px;
+  width: 300px;
+  background-color: darkorange;
+}
+#title-input {
+  width: 255px;
+}
+body {
+  background-color: bisque;
+}
+#note-place {
+  background-color: navajowhite;
+  border: none;
+}
+
+div {
+  border: 2px solid orange;
+}
+
+button {
+  background-color: red;
+}
+
+p {
+  color: brown;
+}
